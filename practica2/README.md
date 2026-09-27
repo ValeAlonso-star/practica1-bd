@@ -1,40 +1,15 @@
-# Práctica 2: Modelo Entidad-Relación Extendido (EER) y Mapeo Relacional
+# Práctica 2: Modelo Entidad Relación Extendido (EER) y Mapeo Relacional
 
-**Instituto Politécnico Nacional**  
-**Escuela Superior de Cómputo (ESCOM)**  
 **Unidad de Aprendizaje:** Bases de Datos  
-**Grupo:** 3CV2 
-**Fecha:** Septiembre 2026  
+**Escuela:** Escuela Superior de Cómputo (ESCOM - IPN)  
+**Carrera:** Ingeniería en Sistemas Computacionales  
+**Grupo:** 3CV2  
 
 ---
 
-##  Integrantes del Equipo
+## EQUIPO
 
-* **Alonso Peña Valeria Elide** 
-* **Perez Mateos Evelyn Yamilet** 
-* **Martinez Gonzalez Irvin**
+* Alonso Peña Valeria Elide — 2026630119
+* Pérez Mateos Evelyn Yamilet — 2024340376
+* Martínez González Irvin — 2026630429
 
----
-
-##  Estructura del Repositorio
-
-La entrega de esta práctica se encuentra organizada en las siguientes carpetas y entregables según los lineamientos del curso:
-
-```text
-practica2/
-├── README.md
-├── proyecto-propio/
-│   ├── requisitos-ampliados.pdf
-│   ├── eer-chen.png
-│   └── eer-crows-feet.png
-├── proyecto-asignado/
-│   ├── levantamiento.md
-│   ├── eer.png
-│   └── correspondencia-con-el-esquema.pdf
-└── evidencias/
-    ├── articulos/
-    │   └── resumenes.pdf
-    ├── propuestas/
-    │   └── propuestas-de-mejora.pdf
-    └── exposicion/
-        └── presentacion.pdf
