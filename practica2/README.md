@@ -8,7 +8,7 @@
 
 ---
 
-## 👥 Integrantes del Equipo
+##  Integrantes del Equipo
 
 * **Alonso Peña Valeria Elide** 
 * **Perez Mateos Evelyn Yamilet** 
@@ -16,7 +16,7 @@
 
 ---
 
-## 📁 Estructura del Repositorio
+##  Estructura del Repositorio
 
 La entrega de esta práctica se encuentra organizada en las siguientes carpetas y entregables según los lineamientos del curso:
 
