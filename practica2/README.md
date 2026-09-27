@@ -3,16 +3,16 @@
 **Instituto Politécnico Nacional**  
 **Escuela Superior de Cómputo (ESCOM)**  
 **Unidad de Aprendizaje:** Bases de Datos  
-**Grupo:** 3CVX  
+**Grupo:** 3CV2 
 **Fecha:** Septiembre 2026  
 
 ---
 
 ## 👥 Integrantes del Equipo
 
-* **Alonso, Valeria** - *Proyecto Asignado y Ejercicio 2/5*
-* **Evelyn** - *Resúmenes de Artículos y Proyecto Propio*
-* **Irvin** - *Resúmenes de Artículos y Proyecto Propio*
+* **Alonso Peña Valeria Elide** 
+* **Perez Mateos Evelyn Yamilet** 
+* **Martinez Gonzalez Irvin**
 
 ---
 
