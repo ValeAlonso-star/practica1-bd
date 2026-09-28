@@ -83,11 +83,11 @@ Se verificó el funcionamiento directo ejecutando consultas en PostgreSQL con do
 
 ## 5. Evidencias de Funcionamiento
 
-### 1. Arranque de Contenedores en Terminal
-![Arranque de Contenedores](./terminal.jpeg)
+1. Arranque de Contenedores en Terminal
+![Arranque de Contenedores](./Alonso%20Peña%20Valeria%20Elide%20terminal.jpeg)
 
-### 2. Respuesta del Servidor Web (Mensaje de Error HTTP 403)
-![Respuesta Servidor Web](./app-funcionando.jpeg)
+2. Respuesta del Servidor Web (Mensaje de Error HTTP 403)
+![Respuesta Servidor Web](./Alonso%20Peña%20Valeria%20Elide%20app-funcionando.jpeg)
 
-### 3. Consulta a la Base de Datos PostgreSQL
-![Consulta SQL](./consulta-sql.jpeg)
+3. Consulta a la Base de Datos PostgreSQL
+![Consulta SQL](./Alonso%20Peña%20Valeria%20Elide%20consulta-sql.jpeg)
