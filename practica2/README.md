@@ -6,14 +6,14 @@
 
 ---
 
-## 👥 Integrantes del Equipo
+## Integrantes del Equipo
 * **Alonso Peña Valeria Elide** (Líder)
-* **Evelyn**
-* **Irvin**
+* **Perez Mateos Evelyn Yamilet**
+* **Martinez Gonzalez Irvin**
 
 ---
 
-## 📌 Proyecto Asignado
+## Proyecto Asignado
 * **Nombre:** Sistema de Visualización de Datos Sísmicos de México (Seismic Data Visualization System)
 * **Documento de Levantamiento:** [Ver levantamiento.md](./proyecto-asignado/levantamiento.md)
 
