@@ -87,10 +87,10 @@ docker exec -it pg-practica1 psql -U postgres -d datawarehouse -c "SELECT * FROM
 ## 5. Evidencias de Funcionamiento
 
 1. **Arranque de Contenedores en Terminal**
-   ![Arranque de Contenedores](<./Alonso Peña Valeria Elide terminal.jpeg>)
+   ![Arranque de Contenedores](./Alonso%20Peña%20Valeria%20Elide%20terminal.jpeg)
 
 2. **Respuesta e Interfaz Web Desplegada**
-   ![Respuesta Servidor Web](<./Alonso Peña Valeria Elide app-funcionando.jpeg>)
+   ![Respuesta Servidor Web](./Alonso%20Peña%20Valeria%20Elide%20app-funcionando.png)
 
 3. **Consulta a la Base de Datos PostgreSQL**
-   ![Consulta SQL](<./Alonso Peña Valeria Elide consulta-sql.jpeg>)
+   ![Consulta SQL](./Alonso%20Peña%20Valeria%20Elide%20consulta-sql.jpeg)
