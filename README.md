@@ -7,7 +7,7 @@
    *  Repositorio / Fork: [https://github.com/ValeAlonso-star/practica1-bd](https://github.com/ValeAlonso-star/practica1-bd)
 
 3. **Presentación Ejecutiva:**
-  * Archivo de Presentación: [Ver Presentación PDF](./practica2/evidencias/exposicion/presentacion.pdf)
+ * Archivo de Presentación: [Ver Presentación PDF](https://github.com/ValeAlonso-star/practica1-bd/blob/main/practica2/evidencias/exposicion/presentacion.pdf)
 ---
 
 ### Fichas del Estado del Arte (Artículos Científicos)
