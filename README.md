@@ -42,19 +42,20 @@
 
 ---
 
-### 👥 Integrantes del Equipo y Distribución de Trabajo
+### Integrantes del Equipo y Distribución de Trabajo
 
 * **Alonso Peña Valeria Elide (2026630119):**
-  * Diseño del Modelo Entidad-Relación y EER del proyecto propio (Tienda de Ropa)[cite: 1, 2].
-  * Creación y despliegue de la Landing Page estática en GitHub Pages[cite: 1, 3].
-  * Exposición de la Parte 1 (Proyecto propio) y Artículo 1 del Estado del Arte[cite: 2, 11, 12, 15].
+  * Creación y despliegue de la Landing Page en GitHub Pages
+  * Articulos practica 1
+  * Configuración del entorno backend en Docker con PostgreSQL / PostGIS para el proyecto asignado (Sismos)
 
 * **Pérez Mateos Evelyn Yamilet (2024340376):**
-  * Mapeo al Modelo Relacional y normalización (1FN, 2FN, 3FN) del proyecto propio[cite: 1, 2].
-  * Documentación técnica y dictamen del Estado del Arte (Artículo 2)[cite: 10, 11, 13].
-  * Exposición de la Parte 2 (Demostración de Sismos) y Artículo 2 del Estado del Arte[cite: 2, 11, 13, 15].
+  * Diseño del Modelo Entidad-Relación y EER del proyecto propio (Tienda de Ropa).
+  * Mapeo al Modelo Relacional 
 
 * **Martínez González Irvin (20266302429):**
-  * Configuración del entorno backend en Docker con PostgreSQL / PostGIS para el proyecto asignado (Sismos)[cite: 1, 2].
-  * Consultas SQL/espaciales y solución de problemas de conexión/red[cite: 2].
-  * Exposición de la Parte 2 (Estructura backend) y Artículo 3 del Estado del Arte[cite: 2, 11, 14, 15].
+  * Configuración del entorno backend en Docker con PostgreSQL / PostGIS para el proyecto asignado (Sismos)
+  * Consultas SQL/espaciales y solución de problemas de conexión/red
+  * La dirección del fork
+  * pull requests
+ 
