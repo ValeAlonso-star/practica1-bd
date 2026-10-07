@@ -15,16 +15,15 @@
 
 #### 1. Percepciones sobre el uso de bases de datos en investigación formativa en odontología
 * **Cita APA (7ª ed.):** Bernal-Cepeda, I. J., Tobar-Sánchez, J. A., & Misas-Avella, M. M. (2021). Percepciones sobre el uso de bases de datos en investigación formativa en odontología. *Revista CES Odontología*, 34(2), 76–92.
-* **DOI:** [https://doi.org/10.21615/cesodon.5925](https://doi.org/10.21615/cesodon.5925)
+* **DOI:** https://doi.org/10.21615/cesodon.5925
+
 
 #### 2. Vigilancia tecnológica para la innovación educativa en el uso de bases de datos y plataformas de gestión
 * **Cita APA (7ª ed.):** Cruz-Rojas, G. A., Molina-Blandón, M. A., & Valdiri-Vinasco, V. (2019). Vigilancia tecnológica para la innovación educativa en el uso de bases de datos y plataformas de gestión de aprendizaje en la Universidad del Valle, Colombia. *Revista de Investigación, Desarrollo e Innovación*, 9(2), 303–317.
-* **DOI:** [https://doi.org/10.19053/20278306.v9.n2.2019.9175](https://doi.org/10.19053/20278306.v9.n2.2019.9175)
-
+* **DOI:** https://doi.org/10.19053/20278306.v9.n2.2019.9175
 #### 3. Bases de datos académicas-científicas, su uso para el desarrollo de la investigación y producción de las IES
 * **Cita APA (7ª ed.):** Martínez Lobo, A. del P., & Martínez Romero, B. (2022). Bases de datos académicas-científicas, su uso para el desarrollo de la investigación y producción de las IES en el sector aeronáutico en Colombia. *Ciencia y Poder Aéreo*, 17(2).
-* **DOI:** [https://doi.org/10.18667/cienciaypoderaereo.736](https://doi.org/10.18667/cienciaypoderaereo.736)
-
+* **DOI:** https://doi.org/10.18667/cienciaypoderaereo.736
 ---
 
 ### Integrantes del Equipo y Distribución de Trabajo
