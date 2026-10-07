@@ -5,7 +5,6 @@
 
 2. **Proyecto Asignado (Sistema de Sismos):**
    *  Repositorio / Fork: [https://github.com/ValeAlonso-star/practica1-bd](https://github.com/ValeAlonso-star/practica1-bd)
-   *  Versión publicada en GitHub Pages: [https://valealonso-star.github.io/practica1-bd/practica2/src/vista.html](https://valealonso-star.github.io/practica1-bd/practica2/src/vista.html)
 
 3. **Presentación Ejecutiva:**
    * Archivo de Presentación en el Repositorio: [`/docs/Presentacion_Bases_de_Datos.pdf`](./docs/Presentacion_Bases_de_Datos.pdf) *(O la ruta donde tengan su archivo)*
