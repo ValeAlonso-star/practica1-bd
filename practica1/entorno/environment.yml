@@ -1,0 +1,10 @@
+name: bd-practica1
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - psql
+  - psycopg2
+  - pip:
+    - python-dotenv
