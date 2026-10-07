@@ -7,7 +7,7 @@
    *  Repositorio / Fork: [https://github.com/ValeAlonso-star/practica1-bd](https://github.com/ValeAlonso-star/practica1-bd)
 
 3. **Presentación Ejecutiva:**
-   * Archivo de Presentación en el Repositorio: [`/docs/Presentacion_Bases_de_Datos.pdf`](./docs/Presentacion_Bases_de_Datos.pdf) *(O la ruta donde tengan su archivo)*
+  * Archivo de Presentación: [Ver Presentación PDF](https://github.com/ValeAlonso-star/practica1-bd/blob/practica2/practica1/Presentacion_Bases_de_Datos.pdf)
 
 ---
 
