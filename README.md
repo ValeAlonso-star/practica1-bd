@@ -31,6 +31,7 @@
 * **Alonso Peña Valeria Elide (2026630119):**
   * Creación y despliegue de la Landing Page estática en GitHub Pages
   * Configuración del entorno backend en Docker con PostgreSQL / PostGIS para el proyecto asignado (Sismos)
+  * Articulos practica 1
 
 * **Pérez Mateos Evelyn Yamilet (2024340376):**
   * Diseño del Modelo Entidad-Relación y EER del proyecto propio y asignado
