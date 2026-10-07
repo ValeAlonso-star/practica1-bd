@@ -39,4 +39,4 @@
 
 * **Martínez González Irvin (20266302429):**
   * Consultas SQL/espaciales y solución de problemas de conexión/red
-  * 
+  * pull requests
