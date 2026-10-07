@@ -23,7 +23,7 @@
 * **DOI:** https://doi.org/10.19053/20278306.v9.n2.2019.9175
 #### 3. Bases de datos académicas-científicas, su uso para el desarrollo de la investigación y producción de las IES
 * **Cita APA (7ª ed.):** Martínez Lobo, A. del P., & Martínez Romero, B. (2022). Bases de datos académicas-científicas, su uso para el desarrollo de la investigación y producción de las IES en el sector aeronáutico en Colombia. *Ciencia y Poder Aéreo*, 17(2).
-* **DOI:** https://doi.org/10.18667/cienciaypoderaereo.736
+* **DOI:** https://doi.org/10.18667/cienciaypoderaereo.736   https://doaj.org/article/fde3a89d60d84016bf1d26249b4ea371
 ---
 
 ### Integrantes del Equipo y Distribución de Trabajo
