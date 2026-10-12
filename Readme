@@ -1,0 +1,81 @@
+# Boutique Style
+
+Boutique Style is a web application designed to manage and track boutique inventory, including product availability, colors, sizes, quantities, purchases, stock levels, and supplier information.
+
+## Team Members and Contributions
+
+- **[Alonso Peña Valeria]** – [Contributed the original idea and defined the project's main focus and objectives]
+- **[Martinez Gonzalez Irvin]** – [Contributed to the design of the application and its user interface.]
+- **[Perez Mateos Evelyn Yamilet]** – [Researched how to develop and implement the project and contributed to the design.]
+
+## How to Run the Project
+
+### View the Website
+
+To view the website, open the project URL in your web browser.
+
+### Run the Project Locally
+
+To run the project on your local machine, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone [repository-url]
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd boutique-style
+   ```
+
+3. Install the required dependencies:
+
+   ```bash
+   [installation-command]
+   ```
+
+4. Start the backend server:
+
+   ```bash
+   [backend-start-command]
+   ```
+
+5. Start the frontend application:
+
+   ```bash
+   [frontend-start-command]
+   ```
+
+6. Open the local URL provided by the development server in your browser.
+
+## Project Files
+
+The following section provides an index of the main project files and their purposes.
+
+- [Backend](./backend/) – Backend application and server-side logic.
+- [Frontend](./frontend/) – Frontend application and user interface.
+- [Additional Files](./) – Other files related to the project.
+
+## Project Status
+
+### Current Features
+
+- Basic website interface for Boutique Style.
+
+### Pending Tasks
+
+- Implement the desired functionality for inventory management, including products, colors, sizes, quantities, purchases, stock levels, and supplier information.
+
+- Implement the navigation options in the website menu.
+
+- Connect the interface with the necessary backend functionality to make the application fully operational.
+
+## Technologies Used
+
+- [Frontend technologies]
+- [Backend technologies]
+- [Database]
+- [Other tools or frameworks]
+
