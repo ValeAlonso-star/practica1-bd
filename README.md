@@ -1,4 +1,4 @@
-# Práctica 3: Transformación del Modelo Entidad-Relación Extendido al Modelo Relacional
+# Práctica 4: Transformación del Modelo Entidad-Relación Extendido al Modelo Relacional
 
 ## Integrantes del Equipo
 * Alonso Peña Valeria Elide
