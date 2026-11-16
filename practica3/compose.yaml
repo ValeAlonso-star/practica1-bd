@@ -1,13 +1,13 @@
 services:
   db:
-    image: postgres:16
+    image: postgis/postgis:16-3.4
     container_name: pg-practica3
     restart: always
     environment:
       POSTGRES_PASSWORD: practica1
       POSTGRES_DB: practica1
     ports:
-      - "5433:5432"   # <-- Cambia el puerto izquierdo a 5433
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
