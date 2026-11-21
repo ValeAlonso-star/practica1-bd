@@ -22,8 +22,8 @@ Query returned successfully in 178 msec.
 
 ## Pruebas de permisos
 ## Prueba 1: Inserción no autorizada con rol_consulta_boutique
-```sql
 **Operación intentada:**
+```sql
 BEGIN;
 SET LOCAL ROLE rol_consulta_boutique;
 INSERT INTO producto (nombre, precio, stock) VALUES ('Top encaje', 280.00, 5);
