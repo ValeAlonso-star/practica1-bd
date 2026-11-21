@@ -20,7 +20,7 @@
 | | `precio` | `DECIMAL(10,2)` | Precio unitario con decimales exactos. |
 | **PRODUCTO** | `idProducto` | `SERIAL` (`INT`) | Identificador único autoincremental del producto. |
 | | `nombre` | `VARCHAR(100)` | Nombre del producto. |
-| | `precio` | `DECIMAL(10,2)` | Precio con precisión decimal exacta (sin punto flotante)[cite: 2]. |
+| | `precio` | `DECIMAL(10,2)` | Precio con precisión decimal exacta (sin punto flotante). |
 | | `stock` | `INT` | Unidades disponibles en existencia. |
 | | `color` | `VARCHAR(50)` | Color del producto. |
 | **ROPA_PRENDA** | `idProducto` | `INT` | Clave primaria y foránea hacia `PRODUCTO`. |
