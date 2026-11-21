@@ -22,6 +22,7 @@ Query returned successfully in 178 msec.
 
 ## Pruebas de permisos
 ## Prueba 1: Inserción no autorizada con rol_consulta_boutique
+```sql
 **Operación intentada:**
 BEGIN;
 SET LOCAL ROLE rol_consulta_boutique;
