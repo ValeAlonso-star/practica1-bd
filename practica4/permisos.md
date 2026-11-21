@@ -27,6 +27,7 @@ BEGIN;
 SET LOCAL ROLE rol_consulta_boutique;
 INSERT INTO producto (nombre, precio, stock) VALUES ('Top encaje', 280.00, 5);
 ROLLBACK;
+```
 **Resultado esperado:**
 PostgreSQL deniega el permiso de escritura en producto.
 **Mensaje devuelto por el gestor:**
