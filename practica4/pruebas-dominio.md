@@ -7,6 +7,7 @@
   BEGIN;
   INSERT INTO producto (nombre, precio, stock, color) VALUES (NULL, 250.00, 10, 'Negro');
   ROLLBACK;
+  ```
  **Resultado esperado:** El gestor rechaza la inserción por violar la restricción NOT NULL en nombre[cite: 16, 20].
  **Mensaje devuelto por el gestor:**
  ERROR:  null value in column "nombre" of relation "producto" violates not-null constraint
