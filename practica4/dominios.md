@@ -1,53 +1,49 @@
 # Ejercicio 1.1. Tipos de dato y dominios
 
-A continuación se presenta la tabla de dominios, tipos de datos, longitudes y precisiones elegidos para cada columna del proyecto de base de datos, considerando el uso estricto de tipos exactos para montos monetarios (evitando punto flotante) y restricciones de validación.
+## Tabla de atributos, tipos de dato y restricciones aplicadas
 
-## Tabla general de atributos y dominios
+| Tabla | Columna | Tipo de dato / Longitud o precisión | Regla / Justificación |
+| :--- | :--- | :--- | :--- |
+| **CLIENTE** | `idCliente` | `SERIAL` (`INT`) | Identificador único autoincremental por cliente[cite: 2]. |
+| | `nombre` | `VARCHAR(50)` | Nombre del cliente[cite: 2]. |
+| | `apellidos` | `VARCHAR(100)` | Apellidos del cliente[cite: 2]. |
+| | `correo` | `VARCHAR(100)` | Validado en `001-dominios.sql` con `chk_cliente_correo` (`correo LIKE '%@%'`) para exigir un formato básico de correo[cite: 2]. |
+| **VENTA** | `idVenta` | `SERIAL` (`INT`) | Identificador único autoincremental de la venta[cite: 2]. |
+| | `idCliente` | `INT` | Clave foránea hacia `CLIENTE`[cite: 2]. |
+| | `fecha` | `DATE` | Fecha en que se registra la venta[cite: 2]. |
+| | `fecha_entrega` | `TIMESTAMP` | Agregada en `001-dominios.sql`; validada con `chk_venta_fechas` (`fecha_entrega IS NULL OR fecha_entrega >= fecha`) para que la entrega no ocurra antes de la venta[cite: 2]. |
+| | `total` | `DECIMAL(10,2)` | Monto total con precisión decimal exacta (sin punto flotante)[cite: 2]. |
+| **DETALLE_VENTA** | `idDetalleVenta` | `SERIAL` (`INT`) | Identificador único de cada línea de venta[cite: 2]. |
+| | `idVenta` | `INT` | Clave foránea hacia `VENTA`[cite: 2]. |
+| | `idProducto` | `INT` | Clave foránea hacia `PRODUCTO`[cite: 2]. |
+| | `cantidad` | `INT` | Cantidad de unidades vendidas[cite: 2]. |
+| | `precio` | `DECIMAL(10,2)` | Precio unitario con decimales exactos[cite: 2]. |
+| **PRODUCTO** | `idProducto` | `SERIAL` (`INT`) | Identificador único autoincremental del producto[cite: 2]. |
+| | `nombre` | `VARCHAR(100)` | Nombre del producto[cite: 2]. |
+| | `precio` | `DECIMAL(10,2)` | Precio con precisión decimal exacta (sin punto flotante)[cite: 2]. |
+| | `stock` | `INT` | Unidades disponibles en existencia[cite: 2]. |
+| | `color` | `VARCHAR(50)` | Color del producto[cite: 2]. |
+| **ROPA_PRENDA** | `idProducto` | `INT` | Clave primaria y foránea hacia `PRODUCTO`[cite: 2]. |
+| | `talla` | `VARCHAR(10)` | Talla de la prenda[cite: 2]. |
+| | `type_corte` | `VARCHAR(50)` | Tipo de corte de la prenda[cite: 2]. |
+| **ACCESORIO** | `idProducto` | `INT` | Clave primaria y foránea hacia `PRODUCTO`[cite: 2]. |
+| | `material` | `VARCHAR(50)` | Material del accesorio[cite: 2]. |
+| | `dimensiones` | `VARCHAR(50)` | Dimensiones del accesorio[cite: 2]. |
+| **PROVEEDOR** | `idProveedor` | `SERIAL` (`INT`) | Identificador único autoincremental del proveedor[cite: 2]. |
+| | `nombre` | `VARCHAR(100)` | Nombre o razón social del proveedor[cite: 2]. |
+| | `correo` | `VARCHAR(100)` | Correo electrónico del proveedor[cite: 2]. |
+| **PROVEEDOR_TELEFONO** | `idProveedor` | `INT` | Clave foránea hacia `PROVEEDOR`[cite: 2]. |
+| | `telefono` | `VARCHAR(20)` | Teléfono almacenado como texto para conservar caracteres como `+`, `-` o espacios[cite: 2]. |
+| **COMPRA** | `idCompra` | `SERIAL` (`INT`) | Identificador único autoincremental de la compra[cite: 2]. |
+| | `idProveedor` | `INT` | Clave foránea hacia `PROVEEDOR`[cite: 2]. |
+| | `fecha` | `DATE` | Fecha en que se realiza la compra[cite: 2]. |
+| | `total` | `DECIMAL(10,2)` | Monto total con precisión decimal exacta[cite: 2]. |
+| **DETALLE_COMPRA** | `idDetalleCompra` | `SERIAL` (`INT`) | Identificador único de cada línea de compra[cite: 2]. |
+| | `idCompra` | `INT` | Clave foránea hacia `COMPRA`[cite: 2]. |
+| | `idProducto` | `INT` | Clave foránea hacia `PRODUCTO`[cite: 2]. |
+| | `cantidad` | `INT` | Cantidad de unidades compradas[cite: 2]. |
+| | `precio` | `DECIMAL(10,2)` | Costo unitario con decimales exactos[cite: 2]. |
 
-| Entidad / Tabla | Columna / Atributo | Tipo de Dato | Longitud / Precisión | Justificación del Tipo y Dominio |
-| :--- | :--- | :--- | :--- | :--- |
-| **CLIENTE** | `idCliente` | SERIAL / INT | 4 bytes (Entero autoincremental) | Identificador único unívoco y secuencial para cada cliente. |
-| | `nombre` | VARCHAR | 50 caracteres | Espacio suficiente para nombres de pila estándar. |
-| | `apellidos` | VARCHAR | 80 caracteres | Permite almacenar apellidos compuestos o largos sin truncamiento. |
-| | `correo` | VARCHAR | 100 caracteres | Espacio estándar para direcciones de correo electrónico. |
-| **PRODUCTO** | `idProducto` | SERIAL / INT | Entero autoincremental | Clave primaria identificadora de cada artículo. |
-| | `nombre` | VARCHAR | 100 caracteres | Descripción nominal del producto. |
-| | `precio` | DECIMAL | `DECIMAL(10,2)` | Monto monetario exacto (hasta 10 dígitos totales, 2 decimales para centavos). Se evita punto flotante para prevenir errores de redondeo financiero. |
-| | `stock` | INT | Entero positivo | Cantidad de piezas disponibles en inventario. |
-| | `color` | VARCHAR | 30 caracteres | Descripción textual del color del producto. |
-| **VENTA** | `idVenta` | SERIAL / INT | Entero autoincremental | Identificador único de cada ticket o transacción de venta. |
-| | `idCliente` | INT | Entero (FK) | Clave foránea que referencia al cliente comprador. |
-| | `fecha` | TIMESTAMP / DATE | Fecha y hora | Momento exacto en que se realiza la transacción comercial. |
-| | `total` | DECIMAL | `DECIMAL(10,2)` | Monto total exacto de la venta, calculado o consolidado sin errores de precisión flotante. |
-| **COMPRA** | `idCompra` | SERIAL / INT | Entero autoincremental | Identificador único de la orden de compra a proveedores. |
-| | `idProveedor` | INT | Entero (FK) | Clave foránea que referencia al proveedor surtidor. |
-| | `fecha` | TIMESTAMP / DATE | Fecha y hora | Registro temporal de la adquisición de mercancía. |
-| | `total` | DECIMAL | `DECIMAL(10,2)` | Costo total exacto de la compra a proveedores. |
-| **PROVEEDOR** | `idProveedor`| SERIAL / INT | Entero autoincremental | Clave primaria del proveedor. |
-| | `nombre` | VARCHAR | 100 caracteres | Razón social o nombre comercial del proveedor. |
-| | `correo` | VARCHAR | 100 caracteres | Contacto electrónico corporativo. |
-| **DETALLE_VENTA**| `idDetalleVenta`| SERIAL / INT| Entero autoincremental | Identificador de cada línea del ticket de venta. |
-| | `idVenta` | INT | Entero (FK) | Relación con la venta cabecera. |
-| | `idProducto` | INT | Entero (FK) | Producto vendido en esta línea. |
-| | `cantidad` | INT | Entero positivo | Número de unidades compradas de este producto en específico. |
-| | `precio` | DECIMAL | `DECIMAL(10,2)` | Precio unitario histórico al momento de la venta. |
-| **DETALLE_COMPRA**| `idDetalleCompra`| SERIAL / INT| Entero autoincremental | Identificador de línea en la orden de compra. |
-| | `idCompra` | INT | Entero (FK) | Relación con la compra cabecera. |
-| | `idProducto` | INT | Entero (FK) | Producto adquirido. |
-| | `cantidad` | INT | Entero positivo | Unidades surtidas. |
-| | `precio` | DECIMAL | `DECIMAL(10,2)` | Costo unitario de adquisición. |
-
----
-## Definición de Dominios Reutilizables (CREATE DOMAIN)
-
-Para mantener la consistencia en los atributos que se repiten a lo largo de múltiples tablas como los correos electrónicos, los precios monetarios y las cantidades enteras positivas, se definieron los siguientes dominios en PostgreSQL:
-
-```sql
-CREATE DOMAIN d_correo AS VARCHAR(100)
-CHECK (VALUE ~ '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
-
-CREATE DOMAIN d_moneda AS DECIMAL(10,2)
-CHECK (VALUE >= 0.00);
-
-CREATE DOMAIN d_cantidad AS INT
-CHECK (VALUE > 0);
+## Restricciones definidas en `001-dominios.sql`
+* **`chk_cliente_correo`**: Verifica que `correo` contenga `@` (`correo LIKE '%@%'`).
+* **`fecha_entrega` y `chk_venta_fechas`**: Añade `fecha_entrega TIMESTAMP` a `VENTA` y exige que, si no es nula, sea mayor o igual a `fecha` (`fecha_entrega IS NULL OR fecha_entrega >= fecha`).
