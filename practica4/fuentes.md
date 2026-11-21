@@ -1,92 +1,94 @@
 # Ejercicio 1.2. Restricciones de columna y tabla (DDL)
 
-A continuación se presenta el script DDL completo para la creación del esquema relacional del proyecto, incorporando las reglas de integridad solicitadas:
+A continuación se presenta el script DDL de referencia para la creación del esquema relacional de la boutique, incorporando reglas de integridad mediante:
+
 1. **`NOT NULL`** en atributos obligatorios y claves foráneas de cardinalidad mínima 1.
-2. **`DEFAULT`** para valores iniciales naturales (fechas y contadores).
+2. **`DEFAULT`** para valores iniciales por defecto (fechas, estados/valores iniciales y contadores).
 3. **`UNIQUE`** para atributos y combinaciones únicas.
-4. **Restricciones `CHECK`** (más de 10 validaciones de rango, formato y lógica de negocio).
+4. **Restricciones `CHECK`** (más de 10 validaciones de rango, formato básico y lógica de negocio).
 
 ## Script DDL en PostgreSQL
 
 ```sql
-DROP TABLE IF EXISTS DETALLE_COMPRA CASCADE;
-DROP TABLE IF EXISTS DETALLE_VENTA CASCADE;
-DROP TABLE IF EXISTS COMPRA CASCADE;
-DROP TABLE IF EXISTS VENTA CASCADE;
-DROP TABLE IF EXISTS PROVEEDOR CASCADE;
-DROP TABLE IF EXISTS PRODUCTO CASCADE;
-DROP TABLE IF EXISTS CLIENTE CASCADE;
+DROP TABLE IF EXISTS detalle_compra CASCADE;
+DROP TABLE IF EXISTS detalle_venta CASCADE;
+DROP TABLE IF EXISTS compra CASCADE;
+DROP TABLE IF EXISTS venta CASCADE;
+DROP TABLE IF EXISTS proveedor CASCADE;
+DROP TABLE IF EXISTS producto CASCADE;
+DROP TABLE IF EXISTS cliente CASCADE;
 
-CREATE TABLE CLIENTE (
-    idCliente SERIAL PRIMARY KEY,
+CREATE TABLE cliente (
+    id_cliente SERIAL PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
-    apellidos VARCHAR(80) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
-    telefono VARCHAR(20) DEFAULT 'S/N',
+    telefono VARCHAR(20) DEFAULT 'No especificado',
     CONSTRAINT uq_cliente_correo UNIQUE (correo), -- UNIQUE 1
-    CONSTRAINT chk_cliente_nombre_largo CHECK (LENGTH(nombre) >= 2) -- CHECK 1
+    CONSTRAINT chk_cliente_correo CHECK (correo LIKE '%@%'), -- CHECK 1
+    CONSTRAINT chk_cliente_nombre_largo CHECK (LENGTH(TRIM(nombre)) >= 2) -- CHECK 2
 );
 
-CREATE TABLE PROVEEDOR (
-    idProveedor SERIAL PRIMARY KEY,
+CREATE TABLE proveedor (
+    id_proveedor SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
-    telefono VARCHAR(20) DEFAULT 'Sin teléfono',
+    telefono VARCHAR(20) DEFAULT 'No especificado',
     CONSTRAINT uq_proveedor_correo UNIQUE (correo), -- UNIQUE 2
-    CONSTRAINT chk_proveedor_nombre CHECK (LENGTH(nombre) >= 3) -- CHECK 2
+    CONSTRAINT chk_proveedor_nombre CHECK (LENGTH(TRIM(nombre)) >= 3) -- CHECK 3
 );
 
-CREATE TABLE PRODUCTO (
-    idProducto SERIAL PRIMARY KEY,
+CREATE TABLE producto (
+    id_producto SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     precio DECIMAL(10,2) NOT NULL,
     stock INT NOT NULL DEFAULT 0,
-    color VARCHAR(30) DEFAULT 'Estándar',
-    CONSTRAINT chk_producto_precio CHECK (precio > 0.00), -- CHECK 3
-    CONSTRAINT chk_producto_stock CHECK (stock >= 0), -- CHECK 4
-    CONSTRAINT chk_producto_nombre CHECK (LENGTH(nombre) >= 2) -- CHECK 5
+    color VARCHAR(50) DEFAULT 'Estándar',
+    CONSTRAINT chk_producto_precio CHECK (precio > 0.00), -- CHECK 4
+    CONSTRAINT chk_producto_stock CHECK (stock >= 0), -- CHECK 5
+    CONSTRAINT chk_producto_nombre CHECK (LENGTH(TRIM(nombre)) >= 2) -- CHECK 6
 );
 
-CREATE TABLE VENTA (
-    idVenta SERIAL PRIMARY KEY,
-    idCliente INT NOT NULL,
-    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, -- DEFAULT para fecha
+CREATE TABLE venta (
+    id_venta SERIAL PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    fecha DATE NOT NULL DEFAULT CURRENT_DATE, -- DEFAULT para fecha de venta
+    fecha_entrega TIMESTAMP,
     total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    CONSTRAINT fk_venta_cliente FOREIGN KEY (idCliente) REFERENCES CLIENTE(idCliente),
-    CONSTRAINT chk_venta_total CHECK (total >= 0.00) -- CHECK 6
+    CONSTRAINT fk_venta_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
+    CONSTRAINT chk_venta_total CHECK (total >= 0.00), -- CHECK 7
+    CONSTRAINT chk_venta_fechas CHECK (fecha_entrega IS NULL OR fecha_entrega >= fecha::timestamp) -- CHECK 8
 );
 
-CREATE TABLE COMPRA (
-    idCompra SERIAL PRIMARY KEY,
-    idProveedor INT NOT NULL,
-    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, -- DEFAULT para fecha
+CREATE TABLE compra (
+    id_compra SERIAL PRIMARY KEY,
+    id_proveedor INT NOT NULL,
+    fecha DATE NOT NULL DEFAULT CURRENT_DATE, -- DEFAULT para fecha de compra
     total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    CONSTRAINT fk_compra_proveedor FOREIGN KEY (idProveedor) REFERENCES PROVEEDOR(idProveedor),
-    CONSTRAINT chk_compra_total CHECK (total >= 0.00) -- CHECK 7
+    CONSTRAINT fk_compra_proveedor FOREIGN KEY (id_proveedor) REFERENCES proveedor(id_proveedor),
+    CONSTRAINT chk_compra_total CHECK (total >= 0.00) -- CHECK 9
 );
 
-CREATE TABLE DETALLE_VENTA (
-    idDetalleVenta SERIAL PRIMARY KEY,
-    idVenta INT NOT NULL,
-    idProducto INT NOT NULL,
+CREATE TABLE detalle_venta (
+    id_detalle_venta SERIAL PRIMARY KEY,
+    id_venta INT NOT NULL,
+    id_producto INT NOT NULL,
     cantidad INT NOT NULL,
     precio DECIMAL(10,2) NOT NULL,
-    CONSTRAINT fk_detalle_venta_venta FOREIGN KEY (idVenta) REFERENCES VENTA(idVenta) ON DELETE CASCADE,
-    CONSTRAINT fk_detalle_venta_producto FOREIGN KEY (idProducto) REFERENCES PRODUCTO(idProducto),
-    CONSTRAINT uq_venta_producto UNIQUE (idVenta, idProducto), -- UNIQUE 3 (Compuesta)
-    CONSTRAINT chk_detalle_venta_cantidad CHECK (cantidad > 0), -- CHECK 8
-    CONSTRAINT chk_detalle_venta_precio CHECK (precio > 0.00) -- CHECK 9
+    CONSTRAINT fk_detalle_venta_venta FOREIGN KEY (id_venta) REFERENCES venta(id_venta) ON DELETE CASCADE,
+    CONSTRAINT fk_detalle_venta_producto FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
+    CONSTRAINT uq_venta_producto UNIQUE (id_venta, id_producto), -- UNIQUE 3 (Compuesta)
+    CONSTRAINT chk_detalle_venta_cantidad CHECK (cantidad > 0), -- CHECK 10
+    CONSTRAINT chk_detalle_venta_precio CHECK (precio > 0.00) -- CHECK 11
 );
 
-CREATE TABLE DETALLE_COMPRA (
-    idDetalleCompra SERIAL PRIMARY KEY,
-    idCompra INT NOT NULL,
-    idProducto INT NOT NULL,
+CREATE TABLE detalle_compra (
+    id_detalle_compra SERIAL PRIMARY KEY,
+    id_compra INT NOT NULL,
+    id_producto INT NOT NULL,
     cantidad INT NOT NULL,
     precio DECIMAL(10,2) NOT NULL,
-    CONSTRAINT fk_detalle_compra_compra FOREIGN KEY (idCompra) REFERENCES COMPRA(idCompra) ON DELETE CASCADE,
-    CONSTRAINT fk_detalle_compra_producto FOREIGN KEY (idProducto) REFERENCES PRODUCTO(idProducto),
-    CONSTRAINT uq_compra_producto UNIQUE (idCompra, idProducto), -- UNIQUE 4 (Compuesta)
-    CONSTRAINT chk_detalle_compra_cantidad CHECK (cantidad > 0), -- CHECK 10
-    CONSTRAINT chk_detalle_compra_precio CHECK (precio > 0.00) -- CHECK 11
+    CONSTRAINT fk_detalle_compra_compra FOREIGN KEY (id_compra) REFERENCES compra(id_compra) ON DELETE CASCADE,
+    CONSTRAINT fk_detalle_compra_producto FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
+    CONSTRAINT uq_compra_producto UNIQUE (id_compra, id_producto) -- UNIQUE 4 (Compuesta)
 );
