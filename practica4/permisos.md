@@ -36,4 +36,30 @@ PostgreSQL deniega el permiso de escritura en producto.
 ERROR:  permission denied for table producto
 SQL state: 42501
 
+### Prueba 2: Eliminación no autorizada con `rol_ventas_boutique`
+* **Operación intentada:**
+  ```sql
+  BEGIN;
+  SET LOCAL ROLE rol_ventas_boutique;
+  DELETE FROM venta;
+  ROLLBACK;
+  ```
+**Resultado esperado:** PostgreSQL deniega el permiso DELETE sobre venta.
 
+**Mensaje devuelto por el gestor:**
+ERROR:  permission denied for table venta
+SQL state: 42501
+
+### Prueba 3: Consulta autorizada con `rol_ventas_boutique`
+* **Operación intentada:**
+  ```sql
+  BEGIN;
+  SET LOCAL ROLE rol_ventas_boutique;
+  SELECT idproducto, nombre, precio, stock FROM producto;
+  ROLLBACK;
+  ```
+  **Resultado esperado:** La consulta se ejecuta correctamente y devuelve las filas de producto.
+
+  **Mensaje devuelto por el gestor:**
+  ROLLBACK
+Query returned successfully in 151 msec.
