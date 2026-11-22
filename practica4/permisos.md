@@ -31,6 +31,7 @@ Query returned successfully in 178 msec.
   ```
 **Resultado esperado:**
 PostgreSQL deniega el permiso de escritura en producto.
+
 **Mensaje devuelto por el gestor:**
 ERROR:  permission denied for table producto
 SQL state: 42501
