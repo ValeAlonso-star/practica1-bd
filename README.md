@@ -1,4 +1,4 @@
-# Práctica 4-5: Integridad Referencial y Pruebas en el Modelo Relacional
+# Práctica 6 5: Integridad Referencial y Pruebas en el Modelo Relacional
 
 ## Integrantes del Equipo
 - Alonso Peña Valeria Elide
